@@ -59,3 +59,4 @@ alpha (fixborders) - https://dwm.suckless.org/patches/alpha/dwm-fixborders-6.2.d
 bottomstack - https://dwm.suckless.org/patches/bottomstack/dwm-bottomstack-6.1.diff
 ru_gaps tile - https://dwm.suckless.org/patches/ru_gaps/dwm-ru_gaps-6.2.diff
 ru_gaps bottomstack - https://dwm.suckless.org/patches/ru_gaps/dwm-ru_bottomstack-6.2.diff
+canfocusrule - custom patch based on https://dwm.suckless.org/patches/canfocusrule/dwm-canfocusrule-20200702-f709b19.diff (original has a bug that prevent windows spawned by another window to be focused. Example: Basic HTTP Login window spawned by Firefox)
