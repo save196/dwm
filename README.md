@@ -37,10 +37,11 @@ Of course you can replace these dependencies with your favorite alternatives to 
 process I specified at what line of config.def.h you can find these dependencies
 mentioned.
 
-The default terminal is suckless st, to change it replace st with your favourite terminal.
-Occurrences of st to replace can be found in config.def.h lines: 63, 65, 76.
+The default terminal is suckless st, but you can change it with your favourite terminal.
+Occurrences of st to replace can be found in config.def.h at lines: 63, 65, 76.
+
 To set your favorite web browser you can either set a system env var '$BROWSER' in your
-.profile (ex. 'export BROWSER="firefox"') or replace '$BROWSER' in config.def.h at line
+.profile file (ex. by adding 'export BROWSER="firefox"' to it) or replace '$BROWSER' in config.def.h at line
 75 with your favorite one.
 
 For some tasks (change volume/change backlight/take a screenshot) custom scripts are used.
