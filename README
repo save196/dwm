@@ -140,8 +140,7 @@ Super+[1..9]		-> change tag
 Super+Shift+q		-> kill selected window
 Super+PrintScreen	-> screenshot on a specific area
 
-Working media keys: VolUp/Down, VolMute, MicMute, NextTrack, PrevTrack, Play/Pause, BrightnessUp/Down,
-		    PrintScreen
+Working media keys: VolUp/Down, VolMute, MicMute, NextTrack, PrevTrack, Play/Pause, BrightnessUp/Down, PrintScreen
 
 NOTES: if something does not work, please refer to the Requirements section.
 
