@@ -1,6 +1,7 @@
 dwm - dynamic window manager
 ============================
 dwm is an extremely fast, small, and dynamic window manager for X.
+
 This is my personal version of dwm. For further information visit
 the official website: https://dwm.suckless.org
 
@@ -105,6 +106,7 @@ Configuration
 -------------
 The configuration of dwm is done by editing config.def.h
 and (re)compiling the source code.
+
 Before recompiling, run:
 
     make clean
@@ -116,31 +118,54 @@ Shortcuts
 ---------
 Super is defined as the Win key.
 
+
 Super+p			-> launch dmenu
+
 Super+Enter		-> launch terminal (default: st)
+
 Super+`			-> launch scratchpad (uses Vim and its VimWiki plugin)
+
 Super+w			-> launch browser
+
 Super+e			-> launch file manager (default: ranger)
+
 Super+s			-> launch Spotify client (default: ncspot)
+
 Super+Shift+Backspace	-> asks if you want to poweroff your pc
+
 Super+b			-> toggle statusbar
+
 Super+[j, k]		-> rotate windows focus
+
 Super+[i, d]		-> increase/decrease the number of master windows
+
 Super+[h, l]		-> increase/decrease master windows size
+
 Super+Shift+Enter	-> set selected window as master
+
 Super+Tab		-> switch to the last used tag
+
 Super+Shift+q		-> kill dwm
+
 Super+[t, f, m, u, o]	-> change windows layout to tiled/float/monocle/bottomstack1/bottomstack2
+
 Super+Space		-> switch layout with the last one used
+
 Super+Shift+Space	-> toggle floating layout for the selected window
+
 Super+Shift+f		-> toggle full screen
+
 Super+[., ,]		-> switch monitor
+
 Super+Shift+[., ,]	-> move selected window to the next or previous monitor
+
 Super+[1..9]		-> change tag
+
 Super+Shift+q		-> kill selected window
+
 Super+PrintScreen	-> screenshot on a specific area
 
-Working media keys: VolUp/Down, VolMute, MicMute, NextTrack, PrevTrack, Play/Pause, BrightnessUp/Down, PrintScreen
+Working media keys: VolUp/Down, VolMute, MicMute, NextTrack, PrevTrack, Play/Pause, BrightnessUp/Down, PrintScreen.
 
 NOTES: if something does not work, please refer to the Requirements section.
 
@@ -148,14 +173,23 @@ NOTES: if something does not work, please refer to the Requirements section.
 Patches
 -------
 attachbelow - https://dwm.suckless.org/patches/attachbelow/dwm-attachbelow-6.2.diff
+
 actualfullscreen - https://dwm.suckless.org/patches/actualfullscreen/dwm-actualfullscreen-20191112-cb3f58a.diff
+
 statusallmons - https://dwm.suckless.org/patches/statusallmons/dwm-statusallmons-6.2.diff
+
 pertag - https://dwm.suckless.org/patches/pertag/dwm-pertag-6.2.diff
+
 scratchpad - https://dwm.suckless.org/patches/scratchpad/dwm-scratchpad-6.2.diff
+
 alpha (fixborders) - https://dwm.suckless.org/patches/alpha/dwm-fixborders-6.2.diff
+
 bottomstack - https://dwm.suckless.org/patches/bottomstack/dwm-bottomstack-6.1.diff
+
 ru_gaps tile - https://dwm.suckless.org/patches/ru_gaps/dwm-ru_gaps-6.2.diff
+
 ru_gaps bottomstack - https://dwm.suckless.org/patches/ru_gaps/dwm-ru_bottomstack-6.2.diff
+
 canfocusrule - custom patch based on https://dwm.suckless.org/patches/canfocusrule/dwm-canfocusrule-20200702-f709b19.diff (original has a bug that prevent windows spawned by another window to be focused. Example: Basic HTTP Login window spawned by Firefox)
 
 
