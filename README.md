@@ -33,7 +33,7 @@ To have a fully functional configuration, you need to install the following depe
        	Debian/Ubuntu based distros installation: sudo apt install suckless-tools
        	Arch based distros installation: sudo pacman -S dmenu
 
-Of course you can replace these dependencies with analogues programs. To ease this
+Of course you can replace these dependencies with your favorite alternatives to these programs. To ease this
 process I specified at what line of config.def.h you can find these dependencies
 mentioned.
 
