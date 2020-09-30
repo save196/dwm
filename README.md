@@ -181,8 +181,6 @@ statusallmons - https://dwm.suckless.org/patches/statusallmons/dwm-statusallmons
 
 pertag - https://dwm.suckless.org/patches/pertag/dwm-pertag-6.2.diff
 
-scratchpad - https://dwm.suckless.org/patches/scratchpad/dwm-scratchpad-6.2.diff
-
 alpha (fixborders) - https://dwm.suckless.org/patches/alpha/dwm-fixborders-6.2.diff
 
 bottomstack - https://dwm.suckless.org/patches/bottomstack/dwm-bottomstack-6.1.diff
@@ -193,13 +191,15 @@ ru_gaps bottomstack - https://dwm.suckless.org/patches/ru_gaps/dwm-ru_bottomstac
 
 canfocusrule - custom patch based on https://dwm.suckless.org/patches/canfocusrule/dwm-canfocusrule-20200702-f709b19.diff (original has a bug that prevent windows spawned by another window to be focused. Example: Basic HTTP Login window spawned by Firefox)
 
+scratchpads - https://dwm.suckless.org/patches/scratchpads/dwm-scratchpads-20200414-728d397b.diff
+
 
 Additional Information
 ----------------------
-
 This build includes also a patch written by me based on the canfocusrule patch that allow the
 official Microsoft Teams client to properly display notifications. Indeed, teams uses its own
 notification system that vanilla dwm do not handle properly.
 This patch do not want to encourage the use of Microsoft Teams since it is proprietary
 software. But in many working environments it is the main teams communication software,
 so in the case you must use Microsoft Teams, this patch can be handy.
+
