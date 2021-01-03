@@ -40,9 +40,7 @@ static const Rule rules[] = {
 	 *	WM_NAME(STRING) = title
 	 */
 	/* class      instance     title       			   tags mask  isfloating  canfocus   monitor */
-        {  NULL,      NULL,        "Microsoft Teams Notification",    0,          1,       0,          -1 },
         {  NULL,      "vimwiki",   NULL,                              SPTAG(0),   1,       1,          -1 },
-        {  NULL,      "keepassxc", "Unlock Database - KeePassXC",     0,          1,       1,          -1 },
         {  NULL,      "keepassxc", NULL,                              SPTAG(1),   0,       1,          -1 },
 };
 
@@ -84,6 +82,7 @@ static Key keys[] = {
 	/* modifier                     key        function        argument */
 	{ MODKEY,                       XK_p,      spawn,          {.v = dmenucmd } },
 	{ MODKEY,                       XK_Return, spawn,          {.v = termcmd } },
+        { MODKEY,            		XK_section, togglescratch, {.ui = 0 } },
         { MODKEY,            		XK_grave,  togglescratch,  {.ui = 0 } },
         { MODKEY,            		XK_x,	   togglescratch,  {.ui = 1 } },
 	{ MODKEY,                       XK_w,      spawn,          SHCMD("$BROWSER") },
@@ -137,8 +136,8 @@ static Key keys[] = {
         { 0,         XF86XK_AudioMicMute,          spawn,          SHCMD("amixer set Capture toggle") },
         { 0,         XF86XK_MonBrightnessUp,       spawn,          SHCMD("backlight-notification inc") },
         { 0,         XF86XK_MonBrightnessDown,     spawn,          SHCMD("backlight-notification dec") },
-        { 0,         PrintScreen,                  spawn,          SHCMD("gnome-screenshot") },
-        { MODKEY,    PrintScreen,                  spawn,          SHCMD("screenshot-area") },
+        { 0,         PrintScreen,                  spawn,          SHCMD("screenshot") },
+        { MODKEY,    PrintScreen,                  spawn,          SHCMD("screenshot area") },
 };
 
 /* button definitions */
