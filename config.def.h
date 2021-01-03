@@ -40,9 +40,7 @@ static const Rule rules[] = {
 	 *	WM_NAME(STRING) = title
 	 */
 	/* class      instance     title       			   tags mask  isfloating  canfocus   monitor */
-        {  NULL,      NULL,        "Microsoft Teams Notification",    0,          1,       0,          -1 },
         {  NULL,      "vimwiki",   NULL,                              SPTAG(0),   1,       1,          -1 },
-        {  NULL,      "keepassxc", "Unlock Database - KeePassXC",     0,          1,       1,          -1 },
         {  NULL,      "keepassxc", NULL,                              SPTAG(1),   0,       1,          -1 },
 };
 
@@ -84,6 +82,7 @@ static Key keys[] = {
 	/* modifier                     key        function        argument */
 	{ MODKEY,                       XK_p,      spawn,          {.v = dmenucmd } },
 	{ MODKEY,                       XK_Return, spawn,          {.v = termcmd } },
+        { MODKEY,            		XK_section, togglescratch, {.ui = 0 } },
         { MODKEY,            		XK_grave,  togglescratch,  {.ui = 0 } },
         { MODKEY,            		XK_x,	   togglescratch,  {.ui = 1 } },
 	{ MODKEY,                       XK_w,      spawn,          SHCMD("$BROWSER") },
