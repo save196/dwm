@@ -40,6 +40,7 @@ static const Rule rules[] = {
 	 *	WM_NAME(STRING) = title
 	 */
 	/* class      instance     title       			   tags mask  isfloating  canfocus   monitor */
+        {  NULL,      NULL,        "Microsoft Teams Notification",    0,          1,       0,          -1 },
         {  NULL,      "vimwiki",   NULL,                              SPTAG(0),   1,       1,          -1 },
         {  NULL,      "keepassxc", NULL,                              SPTAG(1),   0,       1,          -1 },
 };
