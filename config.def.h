@@ -137,6 +137,7 @@ static Key keys[] = {
         { 0,         XF86XK_AudioMicMute,          spawn,          SHCMD("amixer set Capture toggle") },
         { 0,         XF86XK_MonBrightnessUp,       spawn,          SHCMD("backlight-notification inc") },
         { 0,         XF86XK_MonBrightnessDown,     spawn,          SHCMD("backlight-notification dec") },
+	{ 0,         XF86XK_Display,      	   spawn,          SHCMD("dmenu_project") },
         { 0,         PrintScreen,                  spawn,          SHCMD("screenshot") },
         { MODKEY,    PrintScreen,                  spawn,          SHCMD("screenshot area") },
 };
