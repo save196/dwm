@@ -90,7 +90,7 @@ static Key keys[] = {
 	{ MODKEY,                       XK_e,      spawn,          SHCMD("st ranger") },
 	{ MODKEY,                       XK_s,      spawn,          SHCMD("ncspot") },
 	{ MODKEY|ShiftMask,             XK_l,      spawn,          SHCMD("keyboard-layout-toggle") },
-	{ MODKEY|ShiftMask,             XK_BackSpace, spawn,       SHCMD("[ \"$(printf \"No\\nYes\" | dmenu -i -nb darkred -sb red -sf white -nf gray -p \"Shutdown computer?\")\" = Yes ] && poweroff") },
+	{ MODKEY|ShiftMask,             XK_BackSpace, spawn,       SHCMD("dmenu_power") },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
 	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
