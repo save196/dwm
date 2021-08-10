@@ -74,7 +74,7 @@ static const Layout layouts[] = {
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
-static const char *termcmd[]  = { "st", NULL };
+static const char *termcmd[]  = { "alacritty", NULL };
 
 #define PrintScreen         0x0000ff61
 #include <X11/XF86keysym.h>
@@ -87,7 +87,7 @@ static Key keys[] = {
         { MODKEY,            		XK_grave,  togglescratch,  {.ui = 0 } },
         { MODKEY,            		XK_x,	   togglescratch,  {.ui = 1 } },
 	{ MODKEY,                       XK_w,      spawn,          SHCMD("$BROWSER") },
-	{ MODKEY,                       XK_e,      spawn,          SHCMD("st ranger") },
+	{ MODKEY,                       XK_e,      spawn,          SHCMD("$TERMINAL -e ranger") },
 	{ MODKEY,                       XK_s,      spawn,          SHCMD("spotify") },
 	{ MODKEY|ShiftMask,             XK_l,      spawn,          SHCMD("keyboard-layout-toggle") },
 	{ MODKEY|ShiftMask,             XK_BackSpace, spawn,       SHCMD("dmenu_power") },
