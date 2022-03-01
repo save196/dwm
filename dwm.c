@@ -330,7 +330,7 @@ applyrules(Client *c)
 			c->isfloating = r->isfloating;
                         c->canfocus = !r->canfocus;
 			c->tags |= r->tags;
-			if ((r->tags & SPTAGMASK) && r->isfloating) {
+			if ((r->tags & SPTAGMASK) && r->isfloating && (r->tags != ~0)) {
 				c->x = c->mon->wx + (c->mon->ww / 2 - WIDTH(c) / 2);
 				c->y = c->mon->wy + (c->mon->wh / 2 - HEIGHT(c) / 2);
 			}
@@ -1784,7 +1784,7 @@ showhide(Client *c)
 	if (!c)
 		return;
 	if (ISVISIBLE(c)) {
-		if ((c->tags & SPTAGMASK) && c->isfloating) {
+		if ((c->tags & SPTAGMASK) && c->isfloating && (c->tags != TAGMASK)) {
 			c->x = c->mon->wx + (c->mon->ww / 2 - WIDTH(c) / 2);
 			c->y = c->mon->wy + (c->mon->wh / 2 - HEIGHT(c) / 2);
 		}
