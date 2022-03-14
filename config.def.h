@@ -23,7 +23,7 @@ typedef struct {
 	const char *name;
 	const void *cmd;
 } Sp;
-static const char *spcmd1[] = { "st", "-n", "vimwiki", "-t", "vimwiki", "-g", "160x50", "-e", "nvim", "+VimwikiIndex"};
+static const char *spcmd1[] = { "alacritty", "--class", "vimwiki", "-t", "vimwiki", "-o", "window.dimensions.columns=160", "window.dimensions.lines=50", "-e", "nvim", "+VimwikiIndex", NULL};
 const char *spcmd2[] = {"keepassxc", NULL };
 static Sp scratchpads[] = {
 	/* name          cmd  */
