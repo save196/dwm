@@ -89,7 +89,7 @@ static const Key keys[] = {
         { MODKEY,            		XK_grave,  togglescratch,  {.ui = 0 } },
         { MODKEY,            		XK_x,	   togglescratch,  {.ui = 1 } },
 	{ MODKEY,                       XK_w,      spawn,          SHCMD("$BROWSER") },
-	{ MODKEY,                       XK_s,      spawn,          SHCMD("ncspot") },
+	{ MODKEY,                       XK_s,      spawn,          SHCMD("spotify") },
 	{ MODKEY,                       XK_e,      spawn,          SHCMD("$TERMINAL -e ranger") },
 	{ MODKEY|ShiftMask,             XK_l,      spawn,          SHCMD("keyboard-layout-toggle") },
 	{ MODKEY|ShiftMask,             XK_BackSpace, spawn,       SHCMD("dmenu_power") },
