@@ -1098,7 +1098,7 @@ killclient(const Arg *arg)
 void
 manage(Window w, XWindowAttributes *wa)
 {
-	Client *c, *t = NULL;
+	Client *c;
 	Window trans = None;
 	XWindowChanges wc;
 
@@ -1112,13 +1112,10 @@ manage(Window w, XWindowAttributes *wa)
 	c->oldbw = wa->border_width;
 
 	updatetitle(c);
-	if (XGetTransientForHint(dpy, w, &trans) && (t = wintoclient(trans))) {
-		c->mon = t->mon;
-		c->tags = t->tags;
-	} else {
-		c->mon = selmon;
+	c->mon = selmon;
+	c->tags = selmon->tagset[selmon->seltags];
+	if (!XGetTransientForHint(dpy, w, &trans))
 		applyrules(c);
-	}
 
 	if (c->x + WIDTH(c) > c->mon->wx + c->mon->ww)
 		c->x = c->mon->wx + c->mon->ww - WIDTH(c);
