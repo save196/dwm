@@ -6,7 +6,7 @@ static const int gappx              = 7;        /* gaps between windows */
 static const unsigned int snap      = 32;       /* snap pixel */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 0;        /* 0 means bottom bar */
-static const char *fonts[]          = { "monospace:pixelsize=15:antialias=true:autohint=true", "FontAwesome:pixelsize=13", "Noto Color Emoji:pixelsize=11" };
+static const char *fonts[]          = { "monospace:size=13:antialias=true:autohint=true", "FontAwesome:size=10", "Noto Color Emoji:size=8" };
 static const char dmenufont[]       = "monospace:size=10";
 static const char col_gray1[]       = "#222222";
 static const char col_gray2[]       = "#444444";
