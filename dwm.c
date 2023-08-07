@@ -55,10 +55,7 @@
 #define MOUSEMASK               (BUTTONMASK|PointerMotionMask)
 #define WIDTH(X)                ((X)->w + 2 * (X)->bw)
 #define HEIGHT(X)               ((X)->h + 2 * (X)->bw)
-#define NUMTAGS                 (LENGTH(tags) + LENGTH(scratchpads))
-#define TAGMASK                 ((1 << NUMTAGS) - 1)
-#define SPTAG(i)                ((1 << LENGTH(tags)) << (i))
-#define SPTAGMASK               (((1 << LENGTH(scratchpads))-1) << LENGTH(tags))
+#define TAGMASK                 ((1 << LENGTH(tags)) - 1)
 #define TEXTW(X)                (drw_fontset_getwidth(drw, (X)) + lrpad)
 
 /* enums */
@@ -101,6 +98,7 @@ struct Client {
 	Client *snext;
 	Monitor *mon;
 	Window win;
+	int scratchpadid;
 };
 
 typedef struct {
@@ -147,6 +145,7 @@ typedef struct {
 	int isfloating;
         int canfocus;
 	int monitor;
+	int scratchpadid;
 } Rule;
 
 /* function declarations */
@@ -316,6 +315,7 @@ applyrules(Client *c)
 	c->isfloating = 0;
         c->canfocus = 0;
 	c->tags = 0;
+	c->scratchpadid = -1;
 	XGetClassHint(dpy, c->win, &ch);
 	class    = ch.res_class ? ch.res_class : broken;
 	instance = ch.res_name  ? ch.res_name  : broken;
@@ -329,7 +329,8 @@ applyrules(Client *c)
 			c->isfloating = r->isfloating;
                         c->canfocus = !r->canfocus;
 			c->tags |= r->tags;
-			if ((r->tags & SPTAGMASK) && r->isfloating && (r->tags != ~0)) {
+			c->scratchpadid = r->scratchpadid;
+			if (c->scratchpadid != -1 && r->isfloating) {
 				c->x = c->mon->wx + (c->mon->ww / 2 - WIDTH(c) / 2);
 				c->y = c->mon->wy + (c->mon->wh / 2 - HEIGHT(c) / 2);
 			}
@@ -344,7 +345,7 @@ applyrules(Client *c)
 		XFree(ch.res_class);
 	if (ch.res_name)
 		XFree(ch.res_name);
-	c->tags = c->tags & TAGMASK ? c->tags & TAGMASK : (c->mon->tagset[c->mon->seltags] & ~SPTAGMASK);
+	c->tags = c->tags & TAGMASK ? c->tags & TAGMASK : c->mon->tagset[c->mon->seltags];
 }
 
 int
@@ -1798,10 +1799,6 @@ showhide(Client *c)
 	if (!c)
 		return;
 	if (ISVISIBLE(c)) {
-		if ((c->tags & SPTAGMASK) && c->isfloating && (c->tags != TAGMASK)) {
-			c->x = c->mon->wx + (c->mon->ww / 2 - WIDTH(c) / 2);
-			c->y = c->mon->wy + (c->mon->wh / 2 - HEIGHT(c) / 2);
-		}
 		/* show clients top down */
 		XMoveWindow(dpy, c->win, c->x, c->y);
 		if ((!c->mon->lt[c->mon->sellt]->arrange || c->isfloating) && !c->isfullscreen)
@@ -1910,26 +1907,27 @@ void
 togglescratch(const Arg *arg)
 {
 	Client *c;
-	unsigned int found = 0;
-	unsigned int scratchtag = SPTAG(arg->ui);
-	Arg sparg = {.v = scratchpads[arg->ui].cmd};
+	Monitor *m;
+	Arg sparg = {.v = scratchpads[arg->i]};
 
-	for (c = selmon->clients; c && !(found = c->tags & scratchtag); c = c->next);
-	if (found) {
-		unsigned int newtagset = selmon->tagset[selmon->seltags] ^ scratchtag;
-		if (newtagset) {
-			selmon->tagset[selmon->seltags] = newtagset;
-			focus(NULL);
-			arrange(selmon);
-		}
-		if (ISVISIBLE(c)) {
-			focus(c);
-			restack(selmon);
-		}
-	} else {
-		selmon->tagset[selmon->seltags] |= scratchtag;
-		spawn(&sparg);
-	}
+	for (m = mons; m; m = m->next)
+		for (c = m->clients; c; c = c->next)
+			if (c->scratchpadid == arg->i) {
+				if (c->mon == selmon) {
+					c->tags = ISVISIBLE(c) ? 0 : selmon->tagset[selmon->seltags];
+					focus(ISVISIBLE(c) ? c : NULL);
+				} else {
+					sendmon(c, selmon);
+					if (c->isfloating) {
+						c->x = c->mon->wx + (c->mon->ww / 2 - WIDTH(c) / 2);
+						c->y = c->mon->wy + (c->mon->wh / 2 - HEIGHT(c) / 2);
+					}
+				}
+				arrange(c->mon);
+				return;
+			}
+
+	spawn(&sparg);
 }
 
 void
