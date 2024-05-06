@@ -1114,8 +1114,10 @@ manage(Window w, XWindowAttributes *wa)
 
 	updatetitle(c);
 	c->mon = selmon;
-	c->tags = selmon->tagset[selmon->seltags];
-	if (!XGetTransientForHint(dpy, w, &trans))
+	if (XGetTransientForHint(dpy, w, &trans)) {
+		c->scratchpadid = -1;
+		c->tags = selmon->tagset[selmon->seltags];
+	} else
 		applyrules(c);
 
 	if (c->x + WIDTH(c) > c->mon->wx + c->mon->ww)
