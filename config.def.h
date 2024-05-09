@@ -35,11 +35,11 @@ static const Rule rules[] = {
 	 *	WM_CLASS(STRING) = instance, class
 	 *	WM_NAME(STRING) = title
 	 */
-	/* class      instance     title       			   tags mask  isfloating  canfocus  monitor  scratchpadid  */
-        /* {  "Gimp",    NULL,        NULL,                        0,         1,          1,          -1,    -1 }, */
-        {  NULL,      NULL,        "Microsoft Teams Notification", ~0,        1,          0,          -1,    -1 },
-        {  NULL,      "vimwiki",   NULL,                           0,         1,          1,          -1,    0 },
-        {  NULL,      "keepassxc", NULL,                           0,         0,          1,          -1,    1 },
+	/* class      instance     title                               tags mask  isfloating  canfocus  monitor  scratchpadid  */
+	/* {  "Gimp",    NULL,             NULL,                        0,         1,          1,          -1,    -1 }, */
+	{  NULL,      NULL,             "Microsoft Teams Notification", ~0,        1,          0,          -1,    -1 },
+	{  NULL,      "vimwiki",        NULL,                           0,         1,          1,          -1,    0 },
+	{  NULL,      "keepassxc",      NULL,                           0,         0,          1,          -1,    1 },
 };
 
 /* layout(s) */
@@ -82,9 +82,9 @@ static const Key keys[] = {
 	/* modifier                     key        function        argument */
 	{ MODKEY,                       XK_p,      spawn,          {.v = dmenucmd } },
 	{ MODKEY,                       XK_Return, spawn,          {.v = termcmd } },
-        { MODKEY,            		XK_section, togglescratch, {.i = 0 } },
-        { MODKEY,            		XK_grave,  togglescratch,  {.i = 0 } },
-        { MODKEY,            		XK_x,	   togglescratch,  {.i = 1 } },
+	{ MODKEY,                       XK_section, togglescratch, {.i = 0 } },
+	{ MODKEY,                       XK_grave,  togglescratch,  {.i = 0 } },
+	{ MODKEY,                       XK_x,      togglescratch,  {.i = 1 } },
 	{ MODKEY,                       XK_w,      spawn,          SHCMD("$BROWSER") },
 	{ MODKEY,                       XK_s,      spawn,          SHCMD("spotify") },
 	{ MODKEY,                       XK_e,      spawn,          SHCMD("$TERMINAL -e ranger") },
@@ -103,8 +103,8 @@ static const Key keys[] = {
 	{ MODKEY,                       XK_t,      setlayout,      {.v = &layouts[0]} },
 	{ MODKEY,                       XK_f,      setlayout,      {.v = &layouts[1]} },
 	{ MODKEY,                       XK_m,      setlayout,      {.v = &layouts[2]} },
-        { MODKEY,                       XK_u,      setlayout,      {.v = &layouts[3]} },
-        { MODKEY,                       XK_o,      setlayout,      {.v = &layouts[4]} },
+	{ MODKEY,                       XK_u,      setlayout,      {.v = &layouts[3]} },
+	{ MODKEY,                       XK_o,      setlayout,      {.v = &layouts[4]} },
 	{ MODKEY,                       XK_space,  setlayout,      {0} },
 	{ MODKEY|ShiftMask,             XK_space,  togglefloating, {0} },
 	{ MODKEY|ShiftMask,             XK_f,      togglefullscr,  {0} },
@@ -114,7 +114,7 @@ static const Key keys[] = {
 	{ MODKEY,                       XK_period, focusmon,       {.i = +1 } },
 	{ MODKEY|ShiftMask,             XK_comma,  tagmon,         {.i = -1 } },
 	{ MODKEY|ShiftMask,             XK_period, tagmon,         {.i = +1 } },
-        { MODKEY,                       XK_minus,  setgaps,        {.i = -5 } },
+	{ MODKEY,                       XK_minus,  setgaps,        {.i = -5 } },
 	{ MODKEY,                       XK_equal,  setgaps,        {.i = +5 } },
 	{ MODKEY|ShiftMask,             XK_equal,  setgaps,        {.i = 0  } },
 	TAGKEYS(                        XK_1,                      0)
@@ -128,17 +128,17 @@ static const Key keys[] = {
 	TAGKEYS(                        XK_9,                      8)
 	{ MODKEY|ShiftMask,             XK_x,      quit,           {0} },
 	{ 0,         XF86XK_AudioRaiseVolume,      spawn,          SHCMD("audio-notification inc") },
-        { 0,         XF86XK_AudioLowerVolume,      spawn,          SHCMD("audio-notification dec") },
-        { 0,         XF86XK_AudioMute,             spawn,          SHCMD("audio-notification tog") },
-        { 0,         XF86XK_AudioMicMute,          spawn,          SHCMD("audio-notification mic-tog") },
-        { 0,         XF86XK_AudioPlay,             spawn,          SHCMD("playerctl play-pause") },
-        { 0,         XF86XK_AudioPrev,             spawn,          SHCMD("playerctl previous") },
-        { 0,         XF86XK_AudioNext,             spawn,          SHCMD("playerctl next") },
-        { 0,         XF86XK_MonBrightnessUp,       spawn,          SHCMD("backlight-notification inc") },
-        { 0,         XF86XK_MonBrightnessDown,     spawn,          SHCMD("backlight-notification dec") },
-	{ 0,         XF86XK_Display,      	   spawn,          SHCMD("dmenu_project") },
-        { 0,         PrintScreen,                  spawn,          SHCMD("screenshot") },
-        { MODKEY,    PrintScreen,                  spawn,          SHCMD("screenshot area") },
+	{ 0,         XF86XK_AudioLowerVolume,      spawn,          SHCMD("audio-notification dec") },
+	{ 0,         XF86XK_AudioMute,             spawn,          SHCMD("audio-notification tog") },
+	{ 0,         XF86XK_AudioMicMute,          spawn,          SHCMD("audio-notification mic-tog") },
+	{ 0,         XF86XK_AudioPlay,             spawn,          SHCMD("playerctl play-pause") },
+	{ 0,         XF86XK_AudioPrev,             spawn,          SHCMD("playerctl previous") },
+	{ 0,         XF86XK_AudioNext,             spawn,          SHCMD("playerctl next") },
+	{ 0,         XF86XK_MonBrightnessUp,       spawn,          SHCMD("backlight-notification inc") },
+	{ 0,         XF86XK_MonBrightnessDown,     spawn,          SHCMD("backlight-notification dec") },
+	{ 0,         XF86XK_Display,               spawn,          SHCMD("dmenu_project") },
+	{ 0,         PrintScreen,                  spawn,          SHCMD("screenshot") },
+	{ MODKEY,    PrintScreen,                  spawn,          SHCMD("screenshot area") },
 };
 
 /* button definitions */
